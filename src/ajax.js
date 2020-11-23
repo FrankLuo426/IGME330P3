@@ -12,7 +12,6 @@ function downloadFile(url, callbackRef) {
     }
 
     xhr.open("GET", url);
-
     xhr.send();
 };
 
