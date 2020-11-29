@@ -3,6 +3,11 @@ const api = {
     base: "https://api.openweathermap.org/data/2.5/"
 }
 
+let currentInfo = {
+    city: null,
+    main: null,
+}
+
 const searchbox = document.querySelector('.search-box');
 searchbox.addEventListener('keypress', setQuery);
 
@@ -31,7 +36,7 @@ function displayResults(weather) {
 
     let temp = document.querySelector('.current .temp');
     temp.innerHTML = `${Math.round(weather.main.temp)}<span>℃</span>`;
-    
+
     let weather_el = document.querySelector('.current .weather');
     weather_el.innerHTML = weather.weather[0].main;
 
@@ -50,3 +55,9 @@ function dateBuilder(d) {
 
     return `${day} ${date} ${month} ${year}`;
 }
+
+function output(weather) {
+    currentInfo.main = weather.weather[0].main;
+}
+
+export{currentInfo, displayResults};
