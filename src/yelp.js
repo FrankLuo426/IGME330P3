@@ -1,10 +1,12 @@
 function initYelp() {
-    const Yelp_URL = "https://api.yelp.com/v3/businesses/search";
-    let url = Yelp_URL
+    yelpBusinessSearch();
+}
 
-    return url;
+function yelpBusinessSearch(){
+    const URL = "https://people.rit.edu/jz2728/330/project/RestaurantFinder/php/yelp-proxy.php?term=pizaa&location=rochester";
+    return URL;
 }
 
 export {
-    initYelp
+    initYelp,yelpBusinessSearch
 };
