@@ -1,24 +1,45 @@
 import * as yelp from "./yelp.js";
 import * as ajax from "./ajax.js";
 import * as background from "./background.js";
-// import * as weather from "./weather.js";
-
-let business;
+import * as weather from "./weather.js";
+import * as mapbox from "./mapbox.js";
 
 function init() {
-    // const searchbox = document.querySelector('.search-box');
+    setupUI();
 
-    let url = yelp.yelpBusinessSearch();
+    document.querySelector("#food").onclick = function () {
+        document.querySelector("#map").style.visibility = 'visible';
+        document.querySelector("#finder").style.visibility = 'visible';
+    };
 
-    function businessLoaded(jsonString) {
-        business = JSON.parse(jsonString);
-        console.log(business);
+    let url;
+
+    document.querySelector("#findingBttn").onclick = function () {
+        url = yelp.yelpBusinessSearch(document.querySelector("#foodText").value, document.querySelector("#cityText").value);
+        ajax.downloadFile(url, businessLoaded);
+    };
+
+    const searchbox = document.querySelector('.search-box');
+
+    searchbox.onchange = function (e) {
+        background.SearchPhotos();
     }
+}
 
-    ajax.downloadFile(url, businessLoaded)
-    // searchbox.onchange = function (e) {
-    //     background.SearchPhotos();
-    // }
+function setupUI() {
+    mapbox.initMap();
+}
+
+function businessLoaded(jsonString) {
+    let business = JSON.parse(jsonString);
+    console.log(business);
+
+    for (let b of business.businesses) {
+        let latlong = [b.coordinates.longitude, b.coordinates.latitude];
+        mapbox.addMarker(latlong, b.name, `rating: ${b.rating}`, "marker")
+        console.log(latlong);
+        mapbox.flyTo(latlong);
+    }
 }
 
 export {

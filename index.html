@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 3</title>
+    <title>Food People</title>
     <link rel="stylesheet" href="styles/default-styles.css">
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
     <script src="src/loader.js" type="module"></script>
 </head>
 
@@ -30,9 +32,16 @@
                 <button class="detailButton" id="wind"><span>Wind</span></button>
                 <div class="detail"></div>
             </div>
+            <button id="food"><span>food</span></button>
+
+            <div id="finder">
+                <input type="text" id="foodText" class="finderSearchBox" placeholder="Search for a food..." />
+                <input type="text" id="cityText" class="finderSearchBox" placeholder="Search for a city..." />
+                <button id="findingBttn"><span>Find</span></button>
+            </div>
+            <div id='map'></div>
         </main>
     </div>
-    <!-- <script src="src/weather.js"></script>
 </body>
 
 </html>

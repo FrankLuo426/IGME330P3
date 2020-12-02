@@ -1,4 +1,5 @@
 import * as location from "./location.js";
+
 const api = {
     key: "53fa88d825b3450a46c3ee29b1274af5",
     base: "https://api.openweathermap.org/data/2.5/"
@@ -6,7 +7,7 @@ const api = {
 
 
 const searchbox = document.querySelector('.search-box');
-// searchbox.addEventListener('keypress', setQuery);
+searchbox.addEventListener('keypress', setQuery);
 
 function setQuery(evt) {
     if (evt.keyCode == 13) {
@@ -67,7 +68,6 @@ function displayResults(weather) {
     document.querySelector("#wind").onclick = function (e) {
         detail.innerHTML = windDetail;
     };
-
 }
 
 function dateBuilder(d) {

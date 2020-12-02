@@ -166,3 +166,34 @@ main {
     right: -20px;
     transition: 0.5s;
 }
+
+/* Finder */
+#map {
+    visibility:hidden;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20%;
+    width: 80%;
+    height: 100%;
+}
+
+.marker {
+    background-image: url('../media/mapbox-icon.png');
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#finder{
+    visibility:hidden;
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0%;
+    background-color: yellowgreen;
+}
