@@ -56,8 +56,18 @@ function displayResults(weather) {
     <ul>Wind</ul>
     <li>Speed: ${weather.wind.speed} meter/sec</li>
     <li>Deg: ${weather.wind.deg} degrees</li>
-    <li>Gust: ${weather.wind.gust}</li>`
-    detail.innerHTML = mainDetail + visibility + windDetail;
+    <li>Gust: ${weather.wind.gust}</li>`;
+
+    document.querySelector("#main").onclick = function (e) {
+        detail.innerHTML = mainDetail;
+    };
+    document.querySelector("#visibility").onclick = function (e) {
+        detail.innerHTML = visibility;
+    };
+    document.querySelector("#wind").onclick = function (e) {
+        detail.innerHTML = windDetail;
+    };
+
 }
 
 function dateBuilder(d) {
