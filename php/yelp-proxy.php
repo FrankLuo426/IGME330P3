@@ -43,7 +43,7 @@
 			header("Access-Control-Allow-Origin: *");
 			
 		// echo the content from the downloaded file
-		echo $url;
+		//echo $url;
 		echo $filedata;
      
     } else {
