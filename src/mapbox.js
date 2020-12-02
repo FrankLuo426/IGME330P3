@@ -1,10 +1,5 @@
 let map;
 
-// let geojson = {
-//     type: 'FeatureCollection',
-//     features: []
-// };
-
 function initMap() {
     mapboxgl.accessToken =
         'pk.eyJ1IjoicXdlcXdlMzY0IiwiYSI6ImNraGY3c3V4NTAzODcycnVzYzMxYjRhanEifQ.a8LkpUC_AJL-Sd-GGdJRUg';
@@ -66,13 +61,6 @@ function initMap() {
     });
 };
 
-// function addMarkersToMap() {
-//     // add markers to map
-//     for (let feature of geojson.features) {
-//         addMarker(feature.geometry.coordinates, feature.properties.title, feature.properties.description, 'marker');
-//     };
-// };
-
 function flyTo(center = [0, 0]) {
     map.flyTo({
         center: center
@@ -103,7 +91,6 @@ function addMarker(coordinates, title, description, className) {
 
 export {
     initMap,
-    // addMarkersToMap,
     flyTo,
     setZoomLevel,
     setPitchAndBearing,
