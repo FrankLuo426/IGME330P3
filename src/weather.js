@@ -40,9 +40,24 @@ function displayResults(weather) {
     let hilow = document.querySelector('.hi-low');
     hilow.innerText = `${Math.round(weather.main.temp_min)}℃  / ${Math.round(weather.main.temp_max)}℃`
 
+    let description = document.querySelector('.description');
+    description.innerHTML = `${weather.weather[0].description}`;
+
+
     let detail = document.querySelector('.detail');
-    let text = `Temp: ${weather.main.temp} <br> Feels like: ${weather.main.feels_like} <br> Pressure:  ${weather.main.pressure} <br> Humidity: ${weather.main.humidity}`
-    detail.innerHTML = text;
+    let mainDetail = `
+    <ul>Main</ul>
+    <li>Temp: ${weather.main.temp}℃</li>
+    <li>Feels like: ${weather.main.feels_like}℃</li>
+    <li>Pressure:  ${weather.main.pressure}hPa</li>
+    <li>Humidity: ${weather.main.humidity}%</li>`;
+    let visibility = `Visibility: ${weather.visibility}`
+    let windDetail = `
+    <ul>Wind</ul>
+    <li>Speed: ${weather.wind.speed} meter/sec</li>
+    <li>Deg: ${weather.wind.deg} degrees</li>
+    <li>Gust: ${weather.wind.gust}</li>`
+    detail.innerHTML = mainDetail + visibility + windDetail;
 }
 
 function dateBuilder(d) {
@@ -57,4 +72,7 @@ function dateBuilder(d) {
     return `${day} ${date} ${month} ${year}`;
 }
 
-export{getResult, displayResults};
+export {
+    getResult,
+    displayResults
+};
