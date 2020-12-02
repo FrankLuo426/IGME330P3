@@ -1,12 +1,9 @@
+import * as location from "./location.js";
 const api = {
     key: "53fa88d825b3450a46c3ee29b1274af5",
     base: "https://api.openweathermap.org/data/2.5/"
 }
 
-let currentInfo = {
-    city: null,
-    main: null,
-}
 
 const searchbox = document.querySelector('.search-box');
 searchbox.addEventListener('keypress', setQuery);
@@ -42,6 +39,10 @@ function displayResults(weather) {
 
     let hilow = document.querySelector('.hi-low');
     hilow.innerText = `${Math.round(weather.main.temp_min)}℃  / ${Math.round(weather.main.temp_max)}℃`
+
+    let detail = document.querySelector('.detail');
+    let text = `Temp: ${weather.main.temp} <br> Feels like: ${weather.main.feels_like} <br> Pressure:  ${weather.main.pressure} <br> Humidity: ${weather.main.humidity}`
+    detail.innerHTML = text;
 }
 
 function dateBuilder(d) {
@@ -56,8 +57,4 @@ function dateBuilder(d) {
     return `${day} ${date} ${month} ${year}`;
 }
 
-function output(weather) {
-    currentInfo.main = weather.weather[0].main;
-}
-
-export{currentInfo, displayResults};
+export{getResult, displayResults};
