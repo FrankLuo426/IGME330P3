@@ -12,8 +12,16 @@
 </head>
 
 <body>
+    <div id="finder">
+        <input type="text" id="foodText" class="finderSearchBox" placeholder="Search for a food..." />
+        <input type="text" id="cityText" class="finderSearchBox" placeholder="Search for a city..." />
+        <button id="findingBttn"><span>Find</span></button>
+    </div>
+
+    <div id='map'></div>
+
     <div id="weather">
-        <input type="text" autocomplete="off" class="search-box" placeholder="Search for a city..." />
+        <input type="text" autocomplete="off" class="weatherSearchBox" placeholder="Search for a city..." />
         <section class="location">
             <div class="city">Northampton</div>
             <div class="date">Monday 24 November 2020</div>
@@ -30,13 +38,6 @@
             <div class="detail"></div>
         </div>
         <button id="food" class="detailButton"><span>food</span></button>
-
-        <div id="finder">
-            <input type="text" id="foodText" class="finderSearchBox" placeholder="Search for a food..." />
-            <input type="text" id="cityText" class="finderSearchBox" placeholder="Search for a city..." />
-            <button id="findingBttn"><span>Find</span></button>
-        </div>
-        <div id='map'></div>
     </div>
 </body>
 
