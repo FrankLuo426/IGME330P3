@@ -3,11 +3,13 @@ import * as ajax from "./ajax.js";
 import * as background from "./background.js";
 import * as weather from "./weather.js";
 import * as mapbox from "./mapbox.js";
+//import * as location from "./location.js";
 
 function init() {
 
-
-    weather.getResultByLocation();
+    //location.getlocation();
+    //weather.getResultByCoord(location.lon, location.lat);
+    weather.getRochesterResult();
     background.SearchPhotosByLocation();
 
     setupUI();
