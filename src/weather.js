@@ -9,6 +9,10 @@ const api = {
 const searchbox = document.querySelector('.search-box');
 searchbox.addEventListener('keypress', setQuery);
 
+searchbox.onchange = function (e) {
+    getResult(searchbox.value);
+}
+
 function setQuery(evt) {
     if (evt.keyCode == 13) {
         getResult(searchbox.value);
@@ -20,6 +24,7 @@ function getResult(query) {
     fetch(`${api.base}weather?q=${query}&units=metric&appid=${api.key}`)
         .then(weather => {
             return weather.json();
+            console.log(weather);
         }).then(displayResults);
 }
 
@@ -46,6 +51,7 @@ function displayResults(weather) {
 
 
     let detail = document.querySelector('.detail');
+    detail.transition = 0.5;
     let mainDetail = `
     <ul>Main</ul>
     <li>Temp: ${weather.main.temp}℃</li>
@@ -58,15 +64,19 @@ function displayResults(weather) {
     <li>Speed: ${weather.wind.speed} meter/sec</li>
     <li>Deg: ${weather.wind.deg} degrees</li>
     <li>Gust: ${weather.wind.gust}</li>`;
+    
 
     document.querySelector("#main").onclick = function (e) {
         detail.innerHTML = mainDetail;
+        console.log("main");
     };
     document.querySelector("#visibility").onclick = function (e) {
         detail.innerHTML = visibility;
+        console.log("visibility");
     };
     document.querySelector("#wind").onclick = function (e) {
         detail.innerHTML = windDetail;
+        console.log("wind");
     };
 }
 

@@ -23,6 +23,7 @@ function init() {
 
     searchbox.onchange = function (e) {
         background.SearchPhotos();
+        weather.displayResults();
     }
 }
 
