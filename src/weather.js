@@ -1,5 +1,7 @@
 import * as location from "./location.js";
 
+let cityName = null;
+
 const api = {
     key: "53fa88d825b3450a46c3ee29b1274af5",
     base: "https://api.openweathermap.org/data/2.5/"
@@ -68,7 +70,7 @@ function displayResults(weather) {
     <li>Speed: ${weather.wind.speed} meter/sec</li>
     <li>Deg: ${weather.wind.deg} degrees</li>
     <li>Gust: ${weather.wind.gust}</li>`;
-    
+
 
     document.querySelector("#main").onclick = function (e) {
         detail.innerHTML = mainDetail;
@@ -84,8 +86,12 @@ function displayResults(weather) {
     };
 }
 
-function getandshowlocalweather(){
-    
+function getResultByLocation() {
+    fetch(`${api.base}weather?q=rochester&units=metric&appid=${api.key}`)
+        .then(weather => {
+            return weather.json();
+            console.log(location.lat);
+        }).then(displayResults);
 }
 
 function dateBuilder(d) {
@@ -102,5 +108,6 @@ function dateBuilder(d) {
 
 export {
     getResult,
-    displayResults
+    displayResults,
+    getResultByLocation
 };
