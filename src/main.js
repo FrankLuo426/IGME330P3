@@ -7,7 +7,8 @@ import * as mapbox from "./mapbox.js";
 function init() {
 
 
-
+    weather.getResultByLocation();
+    background.SearchPhotosByLocation();
 
     setupUI();
 
