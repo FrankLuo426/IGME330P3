@@ -26,7 +26,7 @@ function init() {
         ajax.downloadFile(url, businessLoaded);
     };
 
-    const searchbox = document.querySelector('.search-box');
+    const searchbox = document.querySelector('.weatherSearchBox');
 
     searchbox.onchange = function (e) {
         background.SearchPhotos();
