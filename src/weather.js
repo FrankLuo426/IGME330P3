@@ -86,8 +86,16 @@ function displayResults(weather) {
     };
 }
 
-function getResultByLocation() {
+function getRochesterResult() {
     fetch(`${api.base}weather?q=rochester&units=metric&appid=${api.key}`)
+        .then(weather => {
+            return weather.json();
+            console.log(location.lat);
+        }).then(displayResults);
+}
+
+function getResultByCoord(lon, lat) {
+    fetch(`${api.base}weather?lat=${lat}&lon=${lon}&units=metric&appid=${api.key}`)
         .then(weather => {
             return weather.json();
             console.log(location.lat);
@@ -106,8 +114,10 @@ function dateBuilder(d) {
     return `${day} ${date} ${month} ${year}`;
 }
 
+
 export {
     getResult,
     displayResults,
-    getResultByLocation
+    getRochesterResult,
+    getResultByCoord
 };

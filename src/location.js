@@ -2,17 +2,17 @@
 let lon;
 let lat;
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        console.log("Geolocation is not supported by this browser.");
-    }
+const successCallback = (position) => {
+    lon = position.longitude;
+    lat = position.latitude;
+    console.log(position);
+}
+const errorCallback = (position) => {
+    console.log("error");
 }
 
-function showPosition(position) {
-    lat = position.coords.latitude;
-    lon = position.coords.longitude;
+function getlocation(){
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 }
 
-export{lon, lat};
+export{lon, lat, getlocation};
