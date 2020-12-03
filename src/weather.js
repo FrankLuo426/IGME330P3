@@ -8,7 +8,7 @@ const api = {
 }
 
 
-const searchbox = document.querySelector('.search-box');
+const searchbox = document.querySelector('.weatherSearchBox');
 searchbox.addEventListener('keypress', setQuery);
 
 searchbox.onchange = function (e) {

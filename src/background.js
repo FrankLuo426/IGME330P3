@@ -1,4 +1,4 @@
-//const searchbox = document.querySelector('.search-box');
+//const searchbox = document.querySelector('.weatherSearchBox');
 import * as weather from "./weather.js";
 // searchbox.addEventListener('keypress', setQuery);
 
@@ -11,7 +11,7 @@ function setQuery(evt) {
 
 function SearchPhotos() {
     let clientId = "WEqRRNiZ_wRDx4_53JYqGcDa7XpU0c5Ayc40B4LonW4";
-    let query = document.querySelector('.search-box').value;
+    let query = document.querySelector('.weatherSearchBox').value;
     let url = "https://api.unsplash.com/search/photos/?client_id=WEqRRNiZ_wRDx4_53JYqGcDa7XpU0c5Ayc40B4LonW4&query=" + query;
 
 
