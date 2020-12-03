@@ -146,13 +146,13 @@ main {
     right: 0;
 }
 
-.detailButton:focus{
+.detailButton:focus {
     border: none;
     outline: none;
     transition: 0.5s;
 }
 
-.detailButton:focus span{
+.detailButton:focus span {
     text-decoration: underline;
     border: none;
     outline: none;
@@ -170,7 +170,7 @@ main {
 
 /* Finder */
 #map {
-    visibility:hidden;
+    visibility: hidden;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -188,8 +188,8 @@ main {
     cursor: pointer;
 }
 
-#finder{
-    visibility:hidden;
+#finder {
+    visibility: hidden;
     position: absolute;
     width: 20%;
     height: 100%;
@@ -197,4 +197,13 @@ main {
     bottom: 0;
     left: 0%;
     background-color: yellowgreen;
+}
+
+#weather {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20%;
+    width: 80%;
+    height: 100%;
 }

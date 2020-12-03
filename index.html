@@ -12,35 +12,31 @@
 </head>
 
 <body>
-    <div class="app-wrap">
-        <header>
-            <input type="text" autocomplete="off" class="search-box" placeholder="Search for a city..." />
-        </header>
-        <main>
-            <section class="location">
-                <div class="city">Northampton</div>
-                <div class="date">Monday 24 November 2020</div>
-            </section>
-            <div class="current">
-                <div class="temp">15<span>℃</span></div>
-                <div class="weather">Sunny</div>
-                <div class="description"></div>
-                <div class="hi-low">13℃ / 16℃</div>
-                <br>
-                <button class="detailButton" id="main"><span>Main</span></button>
-                <button class="detailButton" id="visibility"><span>Visibility</span></button>
-                <button class="detailButton" id="wind"><span>Wind</span></button>
-                <div class="detail"></div>
-            </div>
-            <button id="food" class="detailButton"><span>food</span></button>
+    <div id="weather">
+        <input type="text" autocomplete="off" class="search-box" placeholder="Search for a city..." />
+        <section class="location">
+            <div class="city">Northampton</div>
+            <div class="date">Monday 24 November 2020</div>
+        </section>
+        <div class="current">
+            <div class="temp">15<span>℃</span></div>
+            <div class="weather">Sunny</div>
+            <div class="description"></div>
+            <div class="hi-low">13℃ / 16℃</div>
+            <br>
+            <button class="detailButton" id="main"><span>Main</span></button>
+            <button class="detailButton" id="visibility"><span>Visibility</span></button>
+            <button class="detailButton" id="wind"><span>Wind</span></button>
+            <div class="detail"></div>
+        </div>
+        <button id="food" class="detailButton"><span>food</span></button>
 
-            <div id="finder">
-                <input type="text" id="foodText" class="finderSearchBox" placeholder="Search for a food..." />
-                <input type="text" id="cityText" class="finderSearchBox" placeholder="Search for a city..." />
-                <button id="findingBttn"><span>Find</span></button>
-            </div>
-            <div id='map'></div>
-        </main>
+        <div id="finder">
+            <input type="text" id="foodText" class="finderSearchBox" placeholder="Search for a food..." />
+            <input type="text" id="cityText" class="finderSearchBox" placeholder="Search for a city..." />
+            <button id="findingBttn"><span>Find</span></button>
+        </div>
+        <div id='map'></div>
     </div>
 </body>
 

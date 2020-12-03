@@ -7,7 +7,7 @@ import * as mapbox from "./mapbox.js";
 function init() {
 
 
-    
+
 
     setupUI();
 
