@@ -5,6 +5,10 @@ import * as weather from "./weather.js";
 import * as mapbox from "./mapbox.js";
 
 function init() {
+
+
+    
+
     setupUI();
 
     document.querySelector("#food").onclick = function () {
