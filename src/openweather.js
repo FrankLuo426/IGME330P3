@@ -1,10 +1,7 @@
-let cityName = null;
-
 const api = {
     key: "53fa88d825b3450a46c3ee29b1274af5",
     base: "https://api.openweathermap.org/data/2.5/"
 }
-
 
 const searchbox = document.querySelector('#cityText');
 searchbox.addEventListener('keypress', setQuery);
@@ -14,10 +11,6 @@ searchbox.onchange = function (e) {
 }
 
 function setQuery(evt) {
-    // if (evt.keyCode == 13) {
-    //     getResult(searchbox.value);
-    //     console.log(searchbox.value);
-    // }
     if (true) {
         getResult(searchbox.value);
         console.log(searchbox.value);

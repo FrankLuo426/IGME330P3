@@ -1,10 +1,3 @@
-function setQuery(evt) {
-    if (evt.keyCode == 13) {
-        SearchPhotos();
-    }
-}
-
-
 function SearchPhotos() {
     let clientId = "WEqRRNiZ_wRDx4_53JYqGcDa7XpU0c5Ayc40B4LonW4";
     let query = document.querySelector('.weatherSearchBox').value;

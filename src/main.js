@@ -3,39 +3,42 @@ import * as ajax from "./ajax.js";
 import * as unsplash from "./unsplash.js";
 import * as openweather from "./openweather.js";
 import * as mapbox from "./mapbox.js";
-//import * as location from "./location.js";
+
+let findBttn = document.querySelector("#findingBttn");
+let randomBttn = document.querySelector("#randomBttn");
+let mapSection = document.querySelector("#map");
+let weatherSection = document.querySelector("#weather");
+let citySearchBox = document.querySelector('#cityText');
+let foodSearchBox = document.querySelector("#foodText");
 
 function init() {
+    setupUI();
+
     openweather.getRochesterResult();
     unsplash.SearchPhotosByLocation();
 
-    setupUI();
-
-    document.querySelector("#lazyBttn").onclick = function () {
-        if(document.querySelector("#map").style.visibility == 'hidden')
-        {
-            document.querySelector("#map").style.visibility = 'visible';
-            document.querySelector("#weather").style.visibility = 'hidden';
-        }
-        else{
-            document.querySelector("#map").style.visibility = 'hidden';
-            document.querySelector("#weather").style.visibility = 'visible';
+    randomBttn.onclick = function () {
+        if (mapSection.style.visibility == 'hidden') {
+            mapSection.style.visibility = 'visible';
+            weatherSection.style.visibility = 'hidden';
+        } else {
+            mapSection.style.visibility = 'hidden';
+            weatherSection.style.visibility = 'visible';
         }
     };
 
-    let url;
-
-    document.querySelector("#findingBttn").onclick = function () {
-        url = yelp.yelpBusinessSearch(document.querySelector("#foodText").value, document.querySelector("#cityText").value);
+    findBttn.onclick = function () {
+        let url = yelp.yelpBusinessSearch(foodSearchBox.value, citySearchBox.value);
         ajax.downloadFile(url, businessLoaded);
     };
 
-    const searchbox = document.querySelector('#cityText');
+    const searchbox = citySearchBox;
 
     searchbox.onchange = function (e) {
         unsplash.SearchPhotos();
         openweather.displayResults();
     }
+
 }
 
 function setupUI() {
@@ -47,10 +50,10 @@ function businessLoaded(jsonString) {
     console.log(business);
 
     for (let b of business.businesses) {
-        let latlong = [b.coordinates.longitude, b.coordinates.latitude];
-        mapbox.addMarker(latlong, b.name, `rating: ${b.rating}`, "marker")
-        console.log(latlong);
-        mapbox.flyTo(latlong);
+        let longlat = [b.coordinates.longitude, b.coordinates.latitude];
+        mapbox.addMarker(longlat, b.name, `rating: ${b.rating}`, "marker")
+        console.log(longlat);
+        mapbox.flyTo(longlat);
     }
 }
 
