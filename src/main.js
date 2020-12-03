@@ -7,16 +7,15 @@ import * as mapbox from "./mapbox.js";
 let findBttn = document.querySelector("#findingBttn");
 let randomBttn = document.querySelector("#randomBttn");
 let mapSection = document.querySelector("#map");
-let weatherSection = document.querySelector("#weather");
-let citySearchBox = document.querySelector('#cityText');
-let foodSearchBox = document.querySelector("#foodText");
+let weatherSection = document.querySelector("#weatherSection");
+let citySearchBox = document.querySelector('#citySearchBox');
+let foodSearchBox = document.querySelector("#foodSearchBox");
+let body = document.querySelector("body");
 
 function init() {
     setupUI();
 
-    openweather.getRochesterResult();
-    unsplash.SearchPhotosByLocation();
-
+    //event
     randomBttn.onclick = function () {
         if (mapSection.style.visibility == 'hidden') {
             mapSection.style.visibility = 'visible';
@@ -29,32 +28,49 @@ function init() {
 
     findBttn.onclick = function () {
         let url = yelp.yelpBusinessSearch(foodSearchBox.value, citySearchBox.value);
-        ajax.downloadFile(url, businessLoaded);
+        ajax.downloadFile(url, businessLoad);
     };
 
-    const searchbox = citySearchBox;
-
-    searchbox.onchange = function (e) {
-        unsplash.SearchPhotos();
-        openweather.displayResults();
-    }
-
+    citySearchBox.addEventListener("focusout", weatherSearch);
 }
 
 function setupUI() {
     mapbox.initMap();
+    openweather.getWeather();
 }
 
-function businessLoaded(jsonString) {
-    let business = JSON.parse(jsonString);
-    console.log(business);
+function businessLoad(jsonString) {
+    let businessString = JSON.parse(jsonString);
+    console.log(businessString);
 
-    for (let b of business.businesses) {
+    for (let b of businessString.businesses) {
         let longlat = [b.coordinates.longitude, b.coordinates.latitude];
         mapbox.addMarker(longlat, b.name, `rating: ${b.rating}`, "marker")
         console.log(longlat);
         mapbox.flyTo(longlat);
     }
+}
+
+function weatherSearch() {
+    let url = openweather.getWeather(citySearchBox.value);
+    ajax.downloadFile(url, weatherLoad);
+
+    url = unsplash.searchPhotos(citySearchBox.value);
+    ajax.downloadFile(url, photoLoad)
+}
+
+function weatherLoad(jsonString) {
+    let weatherString = JSON.parse(jsonString);
+    openweather.displayResults(weatherString);
+}
+
+function photoLoad(jsonString) {
+    let photoString = JSON.parse(jsonString);
+    let bgImageURL = `url(${photoString.results[0].urls.regular})`;
+    body.style.background = bgImageURL;
+    body.style.backgroundSize = `80vw 100vh`;
+    body.style.backgroundRepeat = `no-repeat`;
+    body.style.backgroundPosition = `top right`;
 }
 
 export {

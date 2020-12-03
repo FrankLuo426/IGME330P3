@@ -13,30 +13,29 @@
 
 <body>
     <div id="finder">
-        <input type="text" id="foodText" class="finderSearchBox" placeholder="Search for a food..." />
-        <input type="text" id="cityText" class="finderSearchBox" placeholder="Search for a city..." />
+        <input type="text" id="foodSearchBox" class="finderSearchBox" placeholder="Search for a food..." />
+        <input type="text" id="citySearchBox" class="finderSearchBox" placeholder="Search for a city..." />
         <button id="randomBttn">food</button>
         <button id="findingBttn">Find</button>
     </div>
 
     <div id='map'></div>
 
-    <div id="weather">
-        <input type="text" autocomplete="off" class="weatherSearchBox" placeholder="Search for a city..." />
-        <section class="location">
-            <div class="city">Northampton</div>
-            <div class="date">Monday 24 November 2020</div>
-        </section>
-        <div class="current">
-            <div class="temp">15<span>℃</span></div>
-            <div class="weather">Sunny</div>
-            <div class="description"></div>
-            <div class="hi-low">13℃ / 16℃</div>
-            <br>
+    <div id="weatherSection">
+        <div id="location">
+            <div id="city"></div>
+        </div>
+
+        <div id="current">
+            <div id="temp"></div>
+            <div id="weather"></div>
+            <div id="description"></div>
+            <div id="hilow"></div>
+            <!-- <br>
             <button class="detailButton" id="main"><span>Main</span></button>
             <button class="detailButton" id="visibility"><span>Visibility</span></button>
             <button class="detailButton" id="wind"><span>Wind</span></button>
-            <div class="detail"></div>
+            <div class="detail"></div> -->
         </div>
     </div>
 </body>
