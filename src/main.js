@@ -45,6 +45,7 @@ function businessLoad(jsonString) {
 
     for (let b of businessString.businesses) {
         let longlat = [b.coordinates.longitude, b.coordinates.latitude];
+        yelp.addToRestaurantList(b.name, longlat, b.rating);
         mapbox.addMarker(longlat, b.name, `rating: ${b.rating}`, "marker")
         console.log(longlat);
         mapbox.flyTo(longlat);
@@ -66,6 +67,7 @@ function weatherLoad(jsonString) {
 
 function photoLoad(jsonString) {
     let photoString = JSON.parse(jsonString);
+
     let bgImageURL = `url(${photoString.results[0].urls.regular})`;
     body.style.background = bgImageURL;
     body.style.backgroundSize = `80vw 100vh`;

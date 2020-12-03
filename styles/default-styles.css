@@ -1,9 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: 'montserrat', sans-serif;
     background: url(../media/bg.png);
@@ -36,6 +30,7 @@ body {
     font-size: 32px;
     font-weight: 500;
     margin-bottom: 5px;
+    text-shadow: 2px 10px rgba(0, 0, 0, 0.4);
 }
 
 #temp {
@@ -70,73 +65,6 @@ body {
     text-shadow: 0px 4px rgba(0, 0, 0, 0.4);
 }
 
-.current .detail {
-    text-align: left;
-    color: #FFF;
-    font-size: 24px;
-    font-weight: 500;
-    text-shadow: 0px 4px rgba(0, 0, 0, 0.4);
-    transition: ease-in-out;
-}
-
-.detailButton {
-    background-color: transparent;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 24px;
-}
-
-.detailButton span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-}
-
-.detailButton span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-}
-
-.detailButton:hover span {
-    padding-right: 25px;
-}
-
-.detailButton:hover span:after {
-    opacity: 1;
-    right: 0;
-}
-
-.detailButton:focus {
-    border: none;
-    outline: none;
-    transition: 0.5s;
-}
-
-.detailButton:focus span {
-    text-decoration: underline;
-    border: none;
-    outline: none;
-    transition: 0.5s;
-}
-
-.detailButton:focus span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-}
-
 /* Finder */
 #map {
     position: absolute;
@@ -154,6 +82,15 @@ body {
     height: 30px;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.mapboxgl-popup {
+    max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
 }
 
 #finder {

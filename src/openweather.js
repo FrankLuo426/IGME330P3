@@ -23,7 +23,7 @@ function getWeather(city) {
 function displayResults(weatherString) {
     console.log(weatherString);
 
-    city.innerHTML = `Name: ${weatherString.name}`;
+    city.innerHTML = `${weatherString.name}`;
     temp.innerHTML = weatherString.main.temp;
     weatherText.innerHTML = weatherString.weather[0].main;
     description.innerHTML = weatherString.weather[0].description;;
