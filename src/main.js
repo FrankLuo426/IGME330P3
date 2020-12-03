@@ -16,7 +16,7 @@ function init() {
 
     document.querySelector("#food").onclick = function () {
         document.querySelector("#map").style.visibility = 'visible';
-        document.querySelector("#weather").style.visibility = 'visible';
+        document.querySelector("#weather").style.visibility = 'hidden';
     };
 
     let url;
