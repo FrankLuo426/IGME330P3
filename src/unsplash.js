@@ -1,7 +1,3 @@
-//const searchbox = document.querySelector('.weatherSearchBox');
-import * as weather from "./weather.js";
-// searchbox.addEventListener('keypress', setQuery);
-
 function setQuery(evt) {
     if (evt.keyCode == 13) {
         SearchPhotos();

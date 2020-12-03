@@ -1,4 +1,3 @@
-import * as location from "./location.js";
 
 let cityName = null;
 
@@ -8,7 +7,7 @@ const api = {
 }
 
 
-const searchbox = document.querySelector('.weatherSearchBox');
+const searchbox = document.querySelector('#cityText');
 searchbox.addEventListener('keypress', setQuery);
 
 searchbox.onchange = function (e) {

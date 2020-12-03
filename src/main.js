@@ -1,6 +1,6 @@
 import * as yelp from "./yelp.js";
 import * as ajax from "./ajax.js";
-import * as background from "./background.js";
+import * as unsplash from "./unsplash.js";
 import * as weather from "./weather.js";
 import * as mapbox from "./mapbox.js";
 //import * as location from "./location.js";
@@ -10,13 +10,20 @@ function init() {
     //location.getlocation();
     //weather.getResultByCoord(location.lon, location.lat);
     weather.getRochesterResult();
-    background.SearchPhotosByLocation();
+    unsplash.SearchPhotosByLocation();
 
     setupUI();
 
-    document.querySelector("#food").onclick = function () {
-        document.querySelector("#map").style.visibility = 'visible';
-        document.querySelector("#weather").style.visibility = 'hidden';
+    document.querySelector("#lazyBttn").onclick = function () {
+        if(document.querySelector("#map").style.visibility == 'hidden')
+        {
+            document.querySelector("#map").style.visibility = 'visible';
+            document.querySelector("#weather").style.visibility = 'hidden';
+        }
+        else{
+            document.querySelector("#map").style.visibility = 'hidden';
+            document.querySelector("#weather").style.visibility = 'visible';
+        }
     };
 
     let url;
@@ -26,10 +33,10 @@ function init() {
         ajax.downloadFile(url, businessLoaded);
     };
 
-    const searchbox = document.querySelector('.weatherSearchBox');
+    const searchbox = document.querySelector('#cityText');
 
     searchbox.onchange = function (e) {
-        background.SearchPhotos();
+        unsplash.SearchPhotos();
         weather.displayResults();
     }
 }

@@ -148,7 +148,6 @@ body {
 
 /* Finder */
 #map {
-    visibility: hidden;
     position: absolute;
     top: 0;
     bottom: 0;
@@ -177,6 +176,7 @@ body {
 }
 
 #weather {
+    visibility: hidden;
     position: absolute;
     top: 0;
     bottom: 0;
