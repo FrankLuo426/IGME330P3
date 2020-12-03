@@ -1,7 +1,3 @@
-function initYelp() {
-    yelpBusinessSearch();
-}
-
 function yelpBusinessSearch(foodText, cityText) {
     let URL = "https://people.rit.edu/jz2728/330/project/RestaurantFinder/php/yelp-proxy.php";
 
@@ -11,6 +7,5 @@ function yelpBusinessSearch(foodText, cityText) {
 }
 
 export {
-    initYelp,
     yelpBusinessSearch
 };

@@ -1,15 +1,12 @@
 import * as yelp from "./yelp.js";
 import * as ajax from "./ajax.js";
 import * as unsplash from "./unsplash.js";
-import * as weather from "./weather.js";
+import * as openweather from "./openweather.js";
 import * as mapbox from "./mapbox.js";
 //import * as location from "./location.js";
 
 function init() {
-
-    //location.getlocation();
-    //weather.getResultByCoord(location.lon, location.lat);
-    weather.getRochesterResult();
+    openweather.getRochesterResult();
     unsplash.SearchPhotosByLocation();
 
     setupUI();
@@ -37,7 +34,7 @@ function init() {
 
     searchbox.onchange = function (e) {
         unsplash.SearchPhotos();
-        weather.displayResults();
+        openweather.displayResults();
     }
 }
 

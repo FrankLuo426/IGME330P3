@@ -1,4 +1,3 @@
-
 let cityName = null;
 
 const api = {
