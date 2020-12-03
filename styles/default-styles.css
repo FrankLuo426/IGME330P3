@@ -1,4 +1,5 @@
 body {
+    overflow: hidden;
     font-family: 'montserrat', sans-serif;
     background: url(../media/bg.png);
     background-size: 80vw 100vh;
@@ -113,4 +114,34 @@ body {
     height: 100%;
     align-items: center;
     text-align: center;
+}
+
+#restaurantList li {
+    position: relative;
+    display: block;
+    padding: 0.5em;
+    left: -10%;
+    max-width: 18vw;
+    margin: 0.5em;
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border-radius: 0.3em;
+    font-size: 10px;
+
+    -moz-transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+#restaurantList li:hover {
+    background: rgb(177, 177, 177);
+    color: rgb(0, 0, 0);
+
+    -moz-transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
 }

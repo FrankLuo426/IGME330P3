@@ -1,7 +1,11 @@
+import * as mapbox from "./mapbox.js";
+
 class restaurant {
-    constructor(name, longlat, rating) {
+    constructor(id, name, long, lat, rating) {
+        this.id = id;
         this.name = name;
-        this.longlat = longlat;
+        this.long = long;
+        this.lat = lat;
         this.rating = rating;
     }
 }
@@ -16,15 +20,31 @@ function yelpBusinessSearch(foodText, cityText) {
     return URL;
 }
 
-function addToRestaurantList(name, longlat, rating) {
-    restaurantList.push(new restaurant(name, longlat, rating));
+function addToRestaurantList(id, name, long, lat, rating) {
+    restaurantList.push(new restaurant(id, name, long, lat, rating));
+}
 
+function createHtmlLiForRestaurant() {
     for (let r of restaurantList) {
-        restaurantListDiv.innerHTML += `<li>${r.name}${r.rating}</li>`
+        let el = document.createElement("LI");
+        el.setAttribute("id", `ID${r.id}`);
+        el.setAttribute("data-long", `${r.long}`);
+        el.setAttribute("data-lat", `${r.lat}`);
+        restaurantListDiv.appendChild(el);
+        let textNode = document.createTextNode(`${r.name}${r.rating}`);
+        el.appendChild(textNode);
+
+        document.querySelector(`#ID${r.id}`).addEventListener("click", flyToRestaurant);
     }
+}
+
+function flyToRestaurant(e) {
+    let longlat = [e.target.getAttribute("data-long"), e.target.getAttribute("data-lat")];
+    mapbox.flyTo(longlat);
 }
 
 export {
     yelpBusinessSearch,
-    addToRestaurantList
+    addToRestaurantList,
+    createHtmlLiForRestaurant
 };

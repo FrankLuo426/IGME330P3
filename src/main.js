@@ -41,15 +41,13 @@ function setupUI() {
 
 function businessLoad(jsonString) {
     let businessString = JSON.parse(jsonString);
-    console.log(businessString);
 
     for (let b of businessString.businesses) {
         let longlat = [b.coordinates.longitude, b.coordinates.latitude];
-        yelp.addToRestaurantList(b.name, longlat, b.rating);
+        yelp.addToRestaurantList(b.id, b.name, longlat[0], longlat[1], b.rating);
         mapbox.addMarker(longlat, b.name, `rating: ${b.rating}`, "marker")
-        console.log(longlat);
-        mapbox.flyTo(longlat);
     }
+    yelp.createHtmlLiForRestaurant();
 }
 
 function weatherSearch() {
@@ -73,6 +71,10 @@ function photoLoad(jsonString) {
     body.style.backgroundSize = `80vw 100vh`;
     body.style.backgroundRepeat = `no-repeat`;
     body.style.backgroundPosition = `top right`;
+}
+
+function flyToRestaurant(value) {
+    mapbox.flyTo(value);
 }
 
 export {
