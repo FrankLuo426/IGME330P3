@@ -14,7 +14,11 @@ searchbox.onchange = function (e) {
 }
 
 function setQuery(evt) {
-    if (evt.keyCode == 13) {
+    // if (evt.keyCode == 13) {
+    //     getResult(searchbox.value);
+    //     console.log(searchbox.value);
+    // }
+    if (true) {
         getResult(searchbox.value);
         console.log(searchbox.value);
     }
