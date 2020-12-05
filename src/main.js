@@ -44,8 +44,8 @@ function businessLoad(jsonString) {
 
     for (let b of businessString.businesses) {
         let longlat = [b.coordinates.longitude, b.coordinates.latitude];
-        yelp.addToRestaurantList(b.id, b.name, longlat[0], longlat[1], b.rating);
-        mapbox.addMarker(longlat, b.name, `rating: ${b.rating}`, "marker")
+        yelp.addToRestaurantList(b.id, b.name, longlat[0], longlat[1], b.rating, b.phone, b.price);
+        mapbox.addMarker(longlat, b.name, `<b>Rating</b>: ${b.rating}<br><b>Phone</b>: ${b.phone}`, "marker")
     }
     yelp.createHtmlLiForRestaurant();
 }
@@ -71,10 +71,6 @@ function photoLoad(jsonString) {
     body.style.backgroundSize = `80vw 100vh`;
     body.style.backgroundRepeat = `no-repeat`;
     body.style.backgroundPosition = `top right`;
-}
-
-function flyToRestaurant(value) {
-    mapbox.flyTo(value);
 }
 
 export {

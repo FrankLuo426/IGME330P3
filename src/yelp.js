@@ -1,12 +1,13 @@
 import * as mapbox from "./mapbox.js";
 
 class restaurant {
-    constructor(id, name, long, lat, rating) {
+    constructor(id, name, long, lat, rating, phone) {
         this.id = id;
         this.name = name;
         this.long = long;
         this.lat = lat;
         this.rating = rating;
+        this.phone = phone;
     }
 }
 
@@ -20,21 +21,21 @@ function yelpBusinessSearch(foodText, cityText) {
     return URL;
 }
 
-function addToRestaurantList(id, name, long, lat, rating) {
-    restaurantList.push(new restaurant(id, name, long, lat, rating));
+function addToRestaurantList(id, name, long, lat, rating, phone) {
+    restaurantList.push(new restaurant(id, name, long, lat, rating, phone));
 }
 
 function createHtmlLiForRestaurant() {
-    for (let r of restaurantList) {
+    for (let i = 0; i < restaurantList.length && i < 10; i++) {
         let el = document.createElement("LI");
-        el.setAttribute("id", `ID${r.id}`);
-        el.setAttribute("data-long", `${r.long}`);
-        el.setAttribute("data-lat", `${r.lat}`);
+        el.setAttribute("id", `ID${restaurantList[i].id}`);
+        el.setAttribute("data-long", `${restaurantList[i].long}`);
+        el.setAttribute("data-lat", `${restaurantList[i].lat}`);
         restaurantListDiv.appendChild(el);
-        let textNode = document.createTextNode(`${r.name}${r.rating}`);
+        let textNode = document.createTextNode(`${restaurantList[i].name}`);
         el.appendChild(textNode);
 
-        document.querySelector(`#ID${r.id}`).addEventListener("click", flyToRestaurant);
+        document.querySelector(`#ID${restaurantList[i].id}`).addEventListener("click", flyToRestaurant);
     }
 }
 
