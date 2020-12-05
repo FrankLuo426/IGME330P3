@@ -11,24 +11,34 @@ let weatherSection = document.querySelector("#weatherSection");
 let citySearchBox = document.querySelector('#citySearchBox');
 let foodSearchBox = document.querySelector("#foodSearchBox");
 let resetBttn = document.querySelector("#resetBttn");
+let randomFoodText = document.querySelector("#randomFood");
 
 function init() {
     setupUI();
 
     //event
     randomBttn.onclick = function () {
-        if (mapSection.style.visibility == 'hidden') {
-            mapSection.style.visibility = 'visible';
-            weatherSection.style.visibility = 'hidden';
+        if (citySearchBox.value) {
+            localStorage.setItem("lastCity", citySearchBox.value);
+            weatherSearch();
+            
+            if (mapSection.style.visibility == 'hidden') {
+                mapSection.style.visibility = 'visible';
+                weatherSection.style.visibility = 'hidden';
+            } else {
+                mapSection.style.visibility = 'hidden';
+                weatherSection.style.visibility = 'visible';
+            }
         } else {
-            mapSection.style.visibility = 'hidden';
-            weatherSection.style.visibility = 'visible';
+            citySearchBox.style.backgroundColor = "#ef475d";
+            alert("Please enter your city!");
         }
     };
 
     findBttn.onclick = function () {
         localStorage.setItem("lastFood", foodSearchBox.value);
         localStorage.setItem("lastCity", citySearchBox.value);
+
         let url = yelp.yelpBusinessSearch(foodSearchBox.value, citySearchBox.value);
         ajax.downloadFile(url, businessLoad);
     };
@@ -42,7 +52,9 @@ function init() {
         mapbox.clearAllMarker();
     }
 
-    citySearchBox.addEventListener("focusout", weatherSearch);
+    citySearchBox.onfocus = function () {
+        citySearchBox.style.backgroundColor = "white";
+    }
 }
 
 function setupUI() {
@@ -54,7 +66,7 @@ function setupUI() {
 
 function businessLoad(jsonString) {
     let businessString = JSON.parse(jsonString);
-    
+
     let longlat = [businessString.businesses[0].coordinates.longitude, businessString.businesses[0].coordinates.latitude];
     mapbox.flyTo(longlat);
 
@@ -69,6 +81,7 @@ function businessLoad(jsonString) {
 
 function weatherSearch() {
     let url = openweather.getWeather(citySearchBox.value);
+    console.log(url);
     ajax.downloadFile(url, weatherLoad);
 
     url = unsplash.searchPhotos(citySearchBox.value);
@@ -77,17 +90,20 @@ function weatherSearch() {
 
 function weatherLoad(jsonString) {
     let weatherString = JSON.parse(jsonString);
-    openweather.displayResults(weatherString);
+    if (weatherString.cod == "200") {
+        openweather.displayResults(weatherString);
+    }
 }
 
 function photoLoad(jsonString) {
     let photoString = JSON.parse(jsonString);
-
-    let bgImageURL = `url(${photoString.results[0].urls.regular})`;
-    weatherSection.style.background = bgImageURL;
-    weatherSection.style.backgroundSize = `100vw 100vh`;
-    weatherSection.style.backgroundRepeat = `no-repeat`;
-    weatherSection.style.backgroundPosition = `top right`;
+    if (photoString.results[0] != undefined) {
+        let bgImageURL = `url(${photoString.results[0].urls.regular})`;
+        weatherSection.style.background = bgImageURL;
+        weatherSection.style.backgroundSize = `100vw 100vh`;
+        weatherSection.style.backgroundRepeat = `no-repeat`;
+        weatherSection.style.backgroundPosition = `top right`;
+    }
 }
 
 export {
