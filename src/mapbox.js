@@ -1,4 +1,5 @@
 let map;
+let currentMarkers = [];
 
 function initMap() {
     mapboxgl.accessToken =
@@ -80,13 +81,23 @@ function addMarker(coordinates, title, description, className) {
     let el = document.createElement('div');
     el.className = className;
 
-    new mapboxgl.Marker(el)
+    let newMarker = new mapboxgl.Marker(el)
         .setLngLat(coordinates)
         .setPopup(new mapboxgl.Popup({
                 offset: 25
             })
             .setHTML('<h3>' + title + '</h3><p>' + description + '</p>'))
         .addTo(map);
+
+    currentMarkers.push(newMarker);
+}
+
+function clearAllMarker() {
+    if (currentMarkers !== null) {
+        for (let i = currentMarkers.length - 1; i >= 0; i--) {
+            currentMarkers[i].remove();
+        }
+    }
 }
 
 export {
@@ -94,5 +105,6 @@ export {
     flyTo,
     setZoomLevel,
     setPitchAndBearing,
-    addMarker
+    addMarker,
+    clearAllMarker
 };

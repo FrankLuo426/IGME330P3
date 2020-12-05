@@ -44,8 +44,19 @@ function flyToRestaurant(e) {
     mapbox.flyTo(longlat);
 }
 
+function clearRestaurantList() {
+    while (restaurantList[0]) {
+        restaurantList.pop();
+    }
+    
+    while (restaurantListDiv.firstChild) {
+        restaurantListDiv.removeChild(restaurantListDiv.lastChild);
+    }
+}
+
 export {
     yelpBusinessSearch,
     addToRestaurantList,
-    createHtmlLiForRestaurant
+    createHtmlLiForRestaurant,
+    clearRestaurantList
 };
