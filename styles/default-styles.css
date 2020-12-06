@@ -137,4 +137,5 @@ body {
     padding-right: 1em;
     max-height: 80%;
     overflow: hidden;
+    list-style-type: none;
 }
