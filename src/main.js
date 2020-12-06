@@ -63,6 +63,9 @@ function init() {
         foodSearchBox.value = food;
         localStorage.setItem("lastFood", foodSearchBox.value);
         localStorage.setItem("lastCity", citySearchBox.value);
+
+        yelp.clearRestaurantList();
+        mapbox.clearAllMarker();
         let url = yelp.yelpBusinessSearch(food, citySearchBox.value);
         ajax.downloadFile(url, businessLoad);
 
@@ -91,7 +94,7 @@ function businessLoad(jsonString) {
 
     yelp.clearRestaurantList();
     mapbox.clearAllMarker();
-    
+
     for (let b of businessString.businesses) {
         let longlat = [b.coordinates.longitude, b.coordinates.latitude];
         yelp.addToRestaurantList(b.id, b.name, longlat[0], longlat[1], b.rating, b.phone, b.price);
