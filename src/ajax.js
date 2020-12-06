@@ -1,7 +1,6 @@
 function downloadFile(url, callbackRef) {
     const xhr = new XMLHttpRequest();
 
-    xhr.onerror = (e) => console.log("error");
 
     xhr.onload = (e) => {
         const headers = e.target.getAllResponseHeaders();

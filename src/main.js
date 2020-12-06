@@ -106,7 +106,6 @@ function businessLoad(jsonString) {
 
 function weatherSearch() {
     let url = openweather.getWeather(citySearchBox.value);
-    console.log(url);
     ajax.downloadFile(url, weatherLoad);
 
     url = unsplash.searchPhotos(citySearchBox.value);

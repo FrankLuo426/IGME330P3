@@ -15,7 +15,6 @@ function getWeather(city) {
 }
 
 function displayResults(weatherString) {
-    console.log(weatherString);
 
     city.innerHTML = `${weatherString.name}`;
     temp.innerHTML = weatherString.main.temp;
