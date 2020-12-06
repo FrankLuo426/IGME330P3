@@ -210,6 +210,7 @@ body {
     height: 50px;
     overflow: hidden;
     padding: 10px;
+    margin-top: 20px;
     margin-left: 20px;
     margin-right: 20px;
 }
@@ -244,7 +245,7 @@ body {
     width: 100%;
     bottom: -5px;
     border-bottom: 5px solid #5fa8d3;
-    transform: translateY(100%);
+    transform: translateX(-100%);
     transition: all 0.3s ease;
     background-color: rgba(255, 255, 255, 0.4);
 }
