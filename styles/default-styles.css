@@ -152,6 +152,7 @@ body {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    margin: 5px;
 }
 
 .button span {
@@ -168,6 +169,10 @@ body {
     top: 0;
     right: -20px;
     transition: 0.5s;
+}
+
+.button:hover{
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
 .button:hover span {
@@ -223,7 +228,7 @@ body {
     padding-top: 15px;
     border: none;
     outline: none;
-    font-size: 16px;
+    font-size: 24px;
 }
 
 .form label {
@@ -244,7 +249,7 @@ body {
     height: 100%;
     width: 100%;
     bottom: -5px;
-    border-bottom: 5px solid #5fa8d3;
+    border-bottom: 7px solid #5fa8d3;
     transform: translateX(-100%);
     transition: all 0.3s ease;
     background-color: rgba(255, 255, 255, 0.4);
@@ -259,7 +264,7 @@ body {
 
 .form input:focus+.label-food .content-food,
 .form input:valid+.label-food .content-food {
-    transform: translateY(-150%);
+    transform: translateY(-200%);
     font-size: 14px;
 }
 
@@ -272,4 +277,11 @@ body {
 #randomFood{
     font-size: 36px;
     color: white;
+}
+
+
+.buttonPlace{
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
 }
