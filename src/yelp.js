@@ -25,7 +25,7 @@ function addToRestaurantList(id, name, long, lat, rating, phone) {
 }
 
 function createHtmlLiForRestaurant() {
-    for (let i = 0; i < restaurantList.length && i < 10; i++) {
+    for (let i = 0; i < restaurantList.length; i++) {
         let el = document.createElement("LI");
         el.setAttribute("id", `ID${restaurantList[i].id}`);
         el.setAttribute("data-long", `${restaurantList[i].long}`);
