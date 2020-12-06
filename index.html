@@ -9,21 +9,13 @@
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Yantramanav&display=swap" rel="stylesheet">
     <script src="src/loader.js" type="module"></script>
 </head>
 
 <body>
     <div id="finder">
-        <!-- <input type="text" id="foodSearchBox" class="finderSearchBox" placeholder="Search for a food..." />
-        <input type="text" id="citySearchBox" class="finderSearchBox" placeholder="Search for a city..." /> -->
-
+        <header>Food People</header>
         <div class="form">
             <input type="text" id="foodSearchBox" class="finderSearchBox" autocomplete="off" required>
             <label for="foodSearchBox" class="label-food">
@@ -44,7 +36,7 @@
             <br>
             <button id="randomBttn" class="button"><span>Random Food By Weather</span></button>
         </div>
-
+        
         <ol id="restaurantList">
         </ol>
     </div>
@@ -61,6 +53,7 @@
         <button id="rollAgainBttn" class="weatherBttn button weatherText "><span>Roll Again</span></button>
         <button id="loveItBttn" class="weatherBttn button weatherText"><span>I love it</span></button>
     </div>
+    <footer>CopyRight: Frank Luo & John Zhang</footer>
 </body>
-<footer>CopyRight: Frank Luo & John Zhang</footer>
+
 </html>

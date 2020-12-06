@@ -1,7 +1,6 @@
 function downloadFile(url, callbackRef) {
     const xhr = new XMLHttpRequest();
 
-
     xhr.onload = (e) => {
         const headers = e.target.getAllResponseHeaders();
         const jsonString = e.target.response;
