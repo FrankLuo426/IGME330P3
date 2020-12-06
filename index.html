@@ -13,11 +13,27 @@
 
 <body>
     <div id="finder">
-        <input type="text" id="foodSearchBox" class="finderSearchBox" placeholder="Search for a food..." />
-        <input type="text" id="citySearchBox" class="finderSearchBox" placeholder="Search for a city..." />
-        <button id="randomBttn">Random Food By Weather</button>
-        <button id="findingBttn">Find</button>
-        <button id="resetBttn">Reset</button>
+        <!-- <input type="text" id="foodSearchBox" class="finderSearchBox" placeholder="Search for a food..." />
+        <input type="text" id="citySearchBox" class="finderSearchBox" placeholder="Search for a city..." /> -->
+
+        <div class="form">
+            <input type="text" id="foodSearchBox" class="finderSearchBox" autocomplete="off" required>
+            <label for="foodSearchBox" class="label-food">
+                <span class="content-food">Search for a food...</span>
+            </label>
+        </div>
+        <div class="form">
+            <input type="text" id="citySearchBox" class="finderSearchBox" autocomplete="off" required>
+            <label for="foodSearchBox" class="label-food">
+                <span class="content-food">Search for a city...</span>
+            </label>
+        </div>
+
+
+        <button id="randomBttn" class="button"><span>Random Food By Weather</span></button>
+        <br>
+        <button id="findingBttn" class="button"><span>Find</span></button>
+        <button id="resetBttn" class="button"><span>Reset</span></button>
         <ol id="restaurantList">
         </ol>
     </div>
@@ -31,8 +47,8 @@
         <div id="description" class="weatherText"></div>
         <div id="hilow" class="weatherText"></div>
         <div id="randomFood" class="weatherText"></div>
-        <button id="rollAgainBttn" class="weatherBttn">Roll Again</button>
-        <button id="loveItBttn" class="weatherBttn">I love it</button>
+        <button id="rollAgainBttn" class="weatherBttn button weatherText "><span>Roll Again</span></button>
+        <button id="loveItBttn" class="weatherBttn button weatherText"><span>I love it</span></button>
     </div>
 </body>
 

@@ -139,3 +139,133 @@ body {
     overflow: hidden;
     list-style-type: none;
 }
+
+
+
+.button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.button:focus {
+    border: none;
+    outline: none;
+    transition: 0.5s;
+}
+
+.button:focus span {
+    text-decoration: underline;
+    border: none;
+    outline: none;
+    transition: 0.5s;
+}
+
+.button:focus span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.weatherText {
+    font-size: 24px;
+}
+
+.form {
+    /* width: 50%; */
+    position: relative;
+    height: 50px;
+    overflow: hidden;
+}
+
+.form input {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    color: #FFF;
+    padding-top: 15px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.form label {
+    position: absolute;
+    bottom: 0px;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    color: #FFF;
+    border-bottom: 1px solid white;
+}
+
+.form label::after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    bottom: -1px;
+    border-bottom: 3px solid #5fa8d3;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+    background-color: transparent;
+}
+
+.content-food {
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.3s ease;
+}
+
+.form input:focus+.label-food .content-food,
+.form input:valid+.label-food .content-food {
+    transform: translateY(-150%);
+    font-size: 14px;
+}
+
+.form input:focus+.label-food::after,
+.form input:valid+.label-food::after {
+    transform: translateX(0%);
+}
+
+
+#randomFood{
+    font-size: 36px;
+    color: white;
+}

@@ -32,7 +32,7 @@ function init() {
             finderSection.style.visibility = 'hidden';
             weatherSection.style.visibility = 'visible';
         } else {
-            citySearchBox.style.backgroundColor = "#ef475d";
+            // citySearchBox.style.backgroundColor = "#ef475d";
             alert("Please enter your city!");
         }
     };
@@ -75,7 +75,7 @@ function init() {
     }
 
     citySearchBox.onfocus = function () {
-        citySearchBox.style.backgroundColor = "white";
+        // citySearchBox.style.backgroundColor = "tr";
     }
 }
 
