@@ -209,6 +209,7 @@ body {
     position: relative;
     height: 50px;
     overflow: hidden;
+    padding: 10px;
 }
 
 .form input {
