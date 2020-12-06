@@ -1,3 +1,7 @@
+
+*{
+    font-family: 'Russo One', sans-serif;
+}
 body {
     overflow: hidden;
     font-family: 'montserrat', sans-serif;
@@ -207,6 +211,7 @@ body {
 
 .weatherText {
     font-size: 24px;
+    text-shadow: 2px 2px #626262;
 }
 
 .form {
